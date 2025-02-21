@@ -24,21 +24,19 @@
         <p id = "output"></p>
 
         <script> 
-
+            var oops = 0
+            var found = 0
             function checkCity (){
-                oops = 0
-                found = 0
-
                 where = document.getElementById("Where").value
                 guess = document.getElementById("Guess").value
 
                 out = document.getElementById("output")
                 if(where == guess){
                     found++
-                    out.innerHTML = "GotCha"
+                    out.innerHTML = "GotCha " + found
                 } else {
                     oops++
-                    out.innerHTML = "Awe"
+                    out.innerHTML = "Awe " + oops
                 }
             }
 
