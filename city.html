@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            City game
+        </title>
+    </head>
+    <body>
+
+        <h1>City game by Tylan Drydale</h1>
+        
+        <h2>Getting input</h2>
+
+        <form>
+            <label for = "Where">Where in the world</label>
+            <input type = "password" id = "Where" value = "San Diego"> <br>
+            
+            <label for = "Guess">Guess the city</label>
+            <input type = "text" id = "Guess"> <br>
+
+            <input type = "button" onclick = "checkCity()" value = "Check the Guess">
+        </form>
+
+        <p id = "output"></p>
+
+        <script> 
+
+            function checkCity (){
+                oops = 0
+                found = 0
+
+                where = document.getElementById("Where").value
+                guess = document.getElementById("Guess").value
+
+                out = document.getElementById("output")
+                if(where == guess){
+                    found++
+                    out.innerHTML = "GotCha"
+                } else {
+                    oops++
+                    out.innerHTML = "Awe"
+                }
+            }
+
+        </script>
+    </body>
+</html> 
