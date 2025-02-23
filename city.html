@@ -23,6 +23,10 @@
 
         <p id = "output"></p>
 
+        <div>
+            <img src = "Rat.jpg" height = "150" width = "150" id = "Pet" onclick = "updatePick()">
+        </div>
+
         <script> 
             var oops = 0
             var found = 0
@@ -40,6 +44,22 @@
                 }
             }
 
+            var usePick = 1
+            function updatePick(){
+                img = document.getElementById("Pet")
+                usePick = ( usePick % 3 ) + 1
+                switch(usePick){
+                    case 1:
+                        img.src = "Rat.jpg";
+                        break;
+                    case 2:
+                        img.src = "Deer.jpg";
+                        break;
+                    case 3:
+                        img.src = "Yak.jpg";
+                        break;
+                }
+            }
         </script>
     </body>
 </html> 
