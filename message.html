@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            The Cost of a Message
+        </title>
+    </head>
+    <body>
+
+        <h2>Message Cost</h2>
+
+        <form>
+            <label for = "BasicPrice">Enter cost per letter</label>
+            <input type = "number" id = "BasicPrice" name = "BasicPrice" value = 0.50> <br>
+
+            <label for = "BreakAt">Enter the length needed for the discount</label>
+            <input type = "number" id = "BreakAt" name = "BreakAt" value = 9> <br>
+
+            <label for = "Discount">Enter the dicsount percent</label>
+            <input type = "number" id = "Discount" name = "Discount" value = 10> <br>
+
+            <input type = "button" onclick = "amounts()" value = "Show total">
+        </form>
+
+
+        <p id="result"></p>
+
+        <script> 
+            function amounts (){
+                BasicPrice = parseFloat(document.getElementById("BasicPrice").value)
+                BreakAt = parseFloat(document.getElementById("BreakAt").value)
+                Discount = parseFloat(document.getElementById("Discount").value)
+                
+                myResults = ""
+
+                out = document.getElementById("result")
+                for(let size = BreakAt - 3; size <= BreakAt + 3; size++)
+                {
+                    let total = 0
+                    for(let x = 0; x <= size; x++)
+                    {
+                        if(x < BreakAt){
+                            total += BasicPrice
+                        }else{
+                            total += (BasicPrice * (1 - Discount / 100))
+                        }
+                    }
+                    myResults += size + " costs " + total.toFixed(2) + "<br>"
+                }
+                out.innerHTML = "Totals are: <br>" + myResults
+            }
+        </script>
+    </body>
+</html> 
