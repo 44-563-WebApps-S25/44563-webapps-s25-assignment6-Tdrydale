@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Dinner for two
+        </title>
+    </head>
+    <body>
+        <h2>Plans Dinner</h2>
+
+        <form>
+            <input type = "checkbox" id = "wine" name = "wine" value = "true">
+            <label for = "wine">Serve wine</label>
+
+            <input type = "checkbox" id = "outside" name = "outside" value = "true">
+            <label for = "outside">Eat outside</label>
+
+            <input type = "checkbox" id = "candle" name = "candle" value = "false">
+            <label for = "candle">Light candles</label>
+
+            <input type = "button" onclick = "choices()" value = "Dinner Choices">
+        </form>
+
+        <p id = "result"></p>
+
+        <script> 
+            let my_dinner = {}
+            function choices (){
+                my_dinner = {}
+
+                wine = document.getElementById("wine").checked
+                outside = document.getElementById("outside").checked
+                candle = document.getElementById("candle").checked
+
+                my_dinner = "Wine: " + wine + "<br>Outside: " + outside + "<br>Candles: " + candle
+                            
+                out = document.getElementById("result")
+                out.innerHTML = my_dinner
+            }
+        </script>
+    </body>
+</html> 
