@@ -21,7 +21,17 @@
             <input type = "button" onclick = "choices()" value = "Dinner Choices">
         </form>
 
-        <p id = "result"></p>
+        <form>
+            <input type = "text" id = "main" name = "main" value = "Butter Chicken">
+            <label for = "main">Enter main dish</label>
+    
+            <input type = "text" id = "dessert" name = "dessert">
+            <label for = "dessert">Enter dessert</label>
+    
+            <button type = "button" onclick = "updateDinner()">Update the dinner</button>
+        </form>
+
+        <p id = "dinner"></p>
 
         <script> 
             let my_dinner = {}
@@ -34,7 +44,17 @@
 
                 my_dinner = "Wine: " + wine + "<br>Outside: " + outside + "<br>Candles: " + candle
                             
-                out = document.getElementById("result")
+                out = document.getElementById("dinner")
+                out.innerHTML = my_dinner
+            }
+
+            function updateDinner() {
+                main = document.getElementById("main").value
+                dessert = document.getElementById("dessert").value
+
+                my_dinner += "<br>Main Dish: " + main + "<br>Desert: " + dessert
+
+                out = document.getElementById("dinner")
                 out.innerHTML = my_dinner
             }
         </script>
