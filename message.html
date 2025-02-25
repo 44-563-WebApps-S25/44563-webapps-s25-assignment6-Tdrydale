@@ -22,8 +22,20 @@
             <input type = "button" onclick = "amounts()" value = "Show total">
         </form>
 
+        <form>
+            <input type = "radio" id = "product" name = "product" onclick = "chooseOp()" value = "times">
+            <label for = "product">product</label>
 
-        <p id="result"></p>
+            <input type = "radio" id = "sum" name = "sum" onclick = "chooseOp()" value = "add">
+            <label for = "sum">sum</label>
+
+            <input type = "radio" id = "mod" name = "mod" onclick = "chooseOp()" value = "mod">
+            <label for = "mod">mod</label>
+        </form>
+
+        <p id = "message result"></p>
+
+        <p id = "result"></p>
 
         <script> 
             function amounts (){
@@ -31,13 +43,12 @@
                 BreakAt = parseFloat(document.getElementById("BreakAt").value)
                 Discount = parseFloat(document.getElementById("Discount").value)
                 
+                out = document.getElementById("message result")
                 myResults = ""
-
-                out = document.getElementById("result")
                 for(let size = BreakAt - 3; size <= BreakAt + 3; size++)
                 {
                     let total = 0
-                    for(let x = 0; x <= size; x++)
+                    for(let x = 1; x <= size; x++)
                     {
                         if(x < BreakAt){
                             total += BasicPrice
@@ -48,6 +59,30 @@
                     myResults += size + " costs " + total.toFixed(2) + "<br>"
                 }
                 out.innerHTML = "Totals are: <br>" + myResults
+            }
+
+            function chooseOp (){
+                BasicPrice = parseFloat(document.getElementById("BasicPrice").value)
+                BreakAt = parseFloat(document.getElementById("BreakAt").value)
+
+                product = document.getElementById("product").checked
+                sum = document.getElementById("sum").checked
+                mod = document.getElementById("mod").checked
+
+                out = document.getElementById("result")
+                let message = ""
+                let result = 0
+                if(product){
+                    result = BasicPrice * BreakAt 
+                    message = BasicPrice + " * " + BreakAt + " = " + result
+                }else if(sum){
+                    result = BasicPrice + BreakAt
+                    message = BasicPrice + " + " + BreakAt + " = " + result
+                }else if(mod){
+                    result = BasicPrice % BreakAt
+                    message = BasicPrice + " % " + BreakAt + " = " + result
+                }
+                out.innerHTML = message
             }
         </script>
     </body>
